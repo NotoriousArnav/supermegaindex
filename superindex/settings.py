@@ -82,13 +82,9 @@ WSGI_APPLICATION = 'superindex.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': 'T1alQ0uPVKiy',
-        'HOST': 'ep-dawn-bonus-701922-pooler.us-east-1.postgres.vercel-storage.com',
-        'PORT': '5432',
-    }    
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
