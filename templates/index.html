@@ -15,9 +15,6 @@
                     Link
                 </th>
                 <th scope="col" class="px-6 py-3 rounded-r-lg">
-                    Tags
-                </th>
-                <th scope="col" class="px-6 py-3 rounded-r-lg">
                   Date and Time Uploaded
                 </th>
                 <th scope="col" class="px-6 py-3 rounded-r-lg">
@@ -26,6 +23,25 @@
             </tr>
         </thead>
         <tbody>
+          {% for x in records%}
+            <tr class="bg-white dark:bg-gray-800">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{x.title}}
+              </th>
+              <td class="px-6 py-4">
+                {{x.description}}
+              </td>
+              <td class="px-6 py-4">
+                <a href="{{x.link}}" target="_blank" class="text-blue-600 hover:text-blue-500">{{x.link}}</a> 
+              </td>
+              <td class="px-6 py-4">
+                {{x.date_uploaded}}
+              </td>
+              <td class="px-6 py-4">
+                {{x.user}}
+              </td> 
+            </tr>
+          {% endfor %}
           <!--:
             <tr class="bg-white dark:bg-gray-800">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

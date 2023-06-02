@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block body %}
+<div class="container mx-auto flex justify-center items-center h-screen">
+  <form method="post" class="w-full max-w-sm bg-gray-900 text-white rounded px-8 pt-6 pb-8 mb-4">
+    {% csrf_token %}
+    <h2 class="text-center text-2xl text-gray-100 mb-6">Log in to your account</h2>
+    {% for field in form %}
+    <div class="mb-4">
+      <label class="block text-gray-400 text-sm font-bold mb-2" for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field|add_class:"bg-gray-800 text-white rounded py-2 px-3" }}
+      {% if field.errors %}
+      <small class="text-red-500">{{ field.errors|striptags }}</small>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="flex items-center justify-between">
+      <input type="submit" value="Login" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer">
+      <a href="#" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Forgot your password?</a>
+    </div>
+    <p class="text-center mt-4 text-gray-400">Don't have an account? <a href="/accounts/register" class="font-bold text-blue-500 hover:text-blue-800">Join Now</a></p>
+  </form>
+</div>
+{% endblock %}
+
