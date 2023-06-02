@@ -26,8 +26,9 @@ SECRET_KEY = 'django-insecure-%$sx8aqdq8lym6v@!pnf$2u0+%83^1h6c2mc4_w#5fij3p1oju
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*.railway.app',
-    'supermegaindex-production.up.railway.app',
+    '*',
+    '127.0.0.1',
+    '.vercel.app'
 ]
 
 
