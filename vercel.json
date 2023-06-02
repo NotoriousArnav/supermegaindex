@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "supermegaindex/wsgi.py",
+      "src": "superindex/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "supermegaindex/wsgi.py"
+      "dest": "superindex/wsgi.py"
     }
   ]
 }
