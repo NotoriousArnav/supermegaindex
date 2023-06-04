@@ -16,7 +16,7 @@ class RecordListCreateView(generics.ListCreateAPIView):
     serializer_class = RecordSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
-    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter, RecordFilter]
     filterset_class = RecordFilter
     search_fields = ['title', 'url']
     ordering_fields = ['created_at']
