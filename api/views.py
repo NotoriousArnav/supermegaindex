@@ -4,6 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
+from rest_framework.response import Response
 from knox.auth import TokenAuthentication
 from .filters import RecordFilter
 
@@ -35,7 +36,7 @@ class TokenView(generics.GenericAPIView):
         user = serializer.validated_data['user']
         token = AuthToken.objects.create(user)
         return Response({
-            'token': token,
+            'token': token[1],
         })
 
     def delete(self, request, *args, **kwargs):
