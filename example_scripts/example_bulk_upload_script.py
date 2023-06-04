@@ -24,12 +24,7 @@ To Print Data in a Readable way
 
 """
 
-import (
-    requests, 
-    time, 
-    json, 
-    pprint
-)
+import requests, time, json, pprint
 
 apiKey = input("API Key: ")
 Base_URL = "https://arnv2004.pythonanywhere.com/api/records"
