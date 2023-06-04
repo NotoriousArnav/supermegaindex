@@ -16,6 +16,7 @@ class RecordListCreateView(generics.ListCreateAPIView):
     serializer_class = RecordSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
     filterset_class = RecordFilter
     search_fields = ['title', 'url']
     ordering_fields = ['created_at']
