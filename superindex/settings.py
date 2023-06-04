@@ -25,10 +25,7 @@ SECRET_KEY = 'django-insecure-%$sx8aqdq8lym6v@!pnf$2u0+%83^1h6c2mc4_w#5fij3p1oju
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '.vercel.app'
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -43,8 +40,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'index',
     'users',
-    'widget_tweaks'
+    'widget_tweaks',
+    'api',
+    'knox',
+    'django_filters'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
