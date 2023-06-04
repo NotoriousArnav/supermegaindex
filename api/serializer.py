@@ -2,6 +2,10 @@ from rest_framework import serializers
 from index.models import Record
 
 class RecordSerializer(serializers.ModelSerializer):
+    user = serializers.SerializerMethodField()
+    def get_user(self, record):
+        return record.user.username
+    
     class Meta:
         model = Record
         fields = '__all__'
