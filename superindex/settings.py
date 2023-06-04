@@ -50,6 +50,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'knox.auth.TokenAuthentication',
     ],
+    'DEFAULT_API_TITLE': 'Super Mega Index',
+    'DEFAULT_API_DESCRIPTION': 'A Super Index of any Mega.nz links, ANY!'
 }
 
 MIDDLEWARE = [
@@ -139,3 +141,7 @@ STATICFILES_DIR = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ADMIN_SITE_TITLE = 'Super Mega Index'
+ADMIN_SITE_HEADER = 'Super Mega Index'
+ADMIN_INDEX_TITLE = 'Super Mega Index'

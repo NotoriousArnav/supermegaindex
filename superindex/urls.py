@@ -19,6 +19,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "Super Mega Index (Staff Only)"
+admin.site.site_title = "Super Mega Index (Staff Only)"
+admin.site.index_title = "Welcome to Super Mega Index Site Administration Page"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls')),
