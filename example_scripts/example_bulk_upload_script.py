@@ -24,9 +24,9 @@ To Print Data in a Readable way
 
 """
 
-import requests, time, json, pprint
+import requests, time, json, pprint, os
 
-apiKey = input("API Key: ")
+apiKey = os.getenv('smikey', input('Input your API key (if smikey is not set): '))
 Base_URL = "https://arnv2004.pythonanywhere.com/api/records"
 
 waitTime = 5
@@ -41,7 +41,7 @@ for data in links:
     data = requests.post(Base_URL, json=data, headers=headers)
     print(data)
 
-    for x in range(waitTime):
-        print(f"Next Request in {waitTime-x}")
-        time.sleep(x)
+    #    for x in range(waitTime):
+    #        print(f"Next Request in {waitTime-x}")
+    #       time.sleep(1)
  
