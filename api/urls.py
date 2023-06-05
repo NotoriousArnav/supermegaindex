@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
+
 class APIRoot(APIView):
     """
     Custom API root view to display all available endpoints.
@@ -19,6 +20,7 @@ class APIRoot(APIView):
 urlpatterns = [
     path('/records', RecordListCreateView.as_view(), name='record-list-create'),
     path('/auth/token/', TokenView.as_view(), name='token'),
-    path('/', APIRoot.as_view(), name='Endpoints')
+    path('/dbdump', DumpDB.as_view(), name="dbdump"),
+    path('/', APIRoot.as_view(), name='Endpoints'),
 ]
 

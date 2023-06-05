@@ -11,6 +11,10 @@ from .filters import RecordFilter
 from knox.auth import TokenAuthentication
 from knox.models import AuthToken
 
+from django.conf import settings
+
+import os
+
 class RecordListCreateView(generics.ListCreateAPIView):
     queryset = Record.objects.all()
     serializer_class = RecordSerializer
@@ -47,3 +51,16 @@ class TokenView(generics.GenericAPIView):
             return Response({'detail': 'Token invalidated'})
         else:
             return Response({'detail': 'No token provided'})
+
+class DumpDB(generics.GenericAPIView):
+    authentication = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        path = str(settings.BASE_DIR / 'db.sqlite3')
+        dt = os.popen(f"sqlite3 {path} .dump | grep 'INSERT' | grep 'mega.nz' | grep 'index_record'")
+        content = [x+';' for x in dt.read().strip().split(';\n')]
+        return Response({
+            'message': 'Working',
+            'data': content
+        })
